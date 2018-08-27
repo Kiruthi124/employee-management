@@ -1,0 +1,19 @@
+<%= link_to 'New Employee', new_employee_path %>
+<table>
+
+	<tr>
+		<th>Name</th>
+		<th>Age</th>
+		<th>Edit</th>
+		<th>Destroy</th>
+	</tr>
+
+	<% @employees.each do |employee| %>
+		<tr>
+			<td><%= employee.name %></td>
+			<td> <%= employee.age %></td>
+			<td><%= link_to 'Edit', edit_employee_path(employee.id) %></td>
+			<td><%= link_to 'Delete', {action: 'destroy', id: employee.id}, method: 'delete', data: {confirm: 'Are you sure you want to delete?'} %></td>
+		</tr>
+	<% end %>
+</table>
